@@ -18,7 +18,7 @@ pub enum Smoothstep {
   // polynomial:out.
   OutPoCubic,
   OutPoQuartic,
-  OutPoQuintic,
+  // OutPoQuintic,
   /// trigo:in.
   InTrigo,
   /// trigo:out.
@@ -38,9 +38,9 @@ impl Curve for Smoothstep {
       Self::InPoQuintic => polynomial::po_quintic::InPoQuintic.y(p),
       Self::OutPoCubic => polynomial::po_cubic::OutPoCubic.y(p),
       Self::OutPoQuartic => polynomial::po_quartic::OutPoQuartic.y(p),
-      Self::OutPoQuintic => polynomial::po_quintic::OutPoQuintic.y(p),
-      Self::InTrigo => trigo::InTrigo.y(p),
-      Self::OutTrigo => trigo::OutTrigo.y(p),
+      // Self::OutPoQuintic => polynomial::po_quintic::OutPoQuintic.y(p),
+      Self::InTrigo => trigonometric::trigo::InTrigo.y(p),
+      Self::OutTrigo => trigonometric::trigo::OutTrigo.y(p),
     }
   }
 }
