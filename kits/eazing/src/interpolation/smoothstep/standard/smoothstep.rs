@@ -1,5 +1,7 @@
 use crate::easing::Curve;
 
+use libm::{asinf, sinf};
+
 /// The [`InSmooth`] Curve.
 ///
 /// #### examples.

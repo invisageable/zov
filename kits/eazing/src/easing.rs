@@ -204,11 +204,11 @@ impl Curve for Easing {
       Self::InOutSine => trigonometric::sine::InOutSine.y(p),
       Self::InOutCircle => trigonometric::circle::InOutCircle.y(p),
       Self::InExpo2 => exponential::expo2::InExpo2.y(p),
-      Self::InExpoE => exponential::expo_e::InExpoE.y(p),
+      Self::InExpoE => exponential::expoe::InExpoE.y(p),
       Self::OutExpo2 => exponential::expo2::OutExpo2.y(p),
-      Self::OutExpoE => exponential::expo_e::InExpoE.y(p),
+      Self::OutExpoE => exponential::expoe::InExpoE.y(p),
       Self::InOutExpo2 => exponential::expo2::InOutExpo2.y(p),
-      Self::InOutExpoE => exponential::expo_e::InOutExpoE.y(p),
+      Self::InOutExpoE => exponential::expoe::InOutExpoE.y(p),
       Self::InLog10 => logarithmic::log10::InLog10.y(p),
       Self::OutLog10 => logarithmic::log10::OutLog10.y(p),
       Self::InOutLog10 => logarithmic::log10::InOutLog10.y(p),
@@ -221,9 +221,9 @@ impl Curve for Easing {
       Self::OutBounce => oscillatory::bounce::OutBounce.y(p),
       Self::InOutElastic => oscillatory::elastic::InOutElastic.y(p),
       Self::InOutBounce => oscillatory::bounce::InOutBounce.y(p),
-      Self::InBack => standard::back::InBack.y(p),
-      Self::OutBack => standard::back::OutBack.y(p),
-      Self::InOutBack => standard::back::InOutBack.y(p),
+      Self::InBack => backtracking::back::InBack.y(p),
+      Self::OutBack => backtracking::back::OutBack.y(p),
+      Self::InOutBack => backtracking::back::InOutBack.y(p),
       Self::CubicBezier(bezier) => bezier.y(p),
       Self::Smoothstep(smoothstep) => smoothstep.y(p),
       // shoud stay at the last place. New ones must be place above it.
@@ -248,5 +248,5 @@ pub fn ease(
   start: f32,
   end: f32,
 ) -> f32 {
-  start + (end - start) * easing_fn.y(time)
+  start + (end - start) * easing_fn.y(elapsed)
 }

@@ -35,10 +35,10 @@ impl Curve for Smoothstep {
       Self::OutSmoother => standard::smootherstep::OutSmoother.y(p),
       Self::InPoCubic => polynomial::po_cubic::InPoCubic.y(p),
       Self::InPoQuartic => polynomial::po_quartic::InPoQuartic.y(p),
-      Self::InPoQuintic => polynomial::po_quartic::InPoQuintic.y(p),
+      Self::InPoQuintic => polynomial::po_quintic::InPoQuintic.y(p),
       Self::OutPoCubic => polynomial::po_cubic::OutPoCubic.y(p),
       Self::OutPoQuartic => polynomial::po_quartic::OutPoQuartic.y(p),
-      Self::OutPoQuintic => polynomial::po_quartic::OutPoQuintic.y(p),
+      Self::OutPoQuintic => polynomial::po_quintic::OutPoQuintic.y(p),
       Self::InTrigo => trigo::InTrigo.y(p),
       Self::OutTrigo => trigo::OutTrigo.y(p),
     }
