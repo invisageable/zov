@@ -19,7 +19,8 @@ doc-test = false
 # internals.
 
 # externals.
-libm = { workspace = true, optional = true }
+# libm = { workspace = true, optional = true }
+libm = { workspace = true }
 lyon_geom = { workspace = true, default-features = false }
 
 [dev-dependencies]
@@ -34,3 +35,7 @@ easings = "0.1.0"
 keyframe = "1.1.1"
 interpolation = "0.3.0"
 simple-easing2 = "1.0.2"
+
+[[bench]]
+name = "all"
+harness = false

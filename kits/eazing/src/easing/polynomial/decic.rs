@@ -57,6 +57,7 @@ impl Curve for OutDecic {
   }
 }
 
+#[test]
 fn test_out_decic() {
   let p = OutDecic.y(1.0);
 
@@ -90,6 +91,7 @@ impl Curve for InOutDecic {
   }
 }
 
+#[test]
 fn test_in_out_decic() {
   let p = InOutDecic.y(1.0);
 
