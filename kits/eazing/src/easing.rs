@@ -154,7 +154,7 @@ pub enum Easing {
   // backtracking:in-out.
   InOutBack,
   // cubic bezier.
-  CubicBezier(bezier::cubic_bezier::CubicBezier),
+  CubicBezier(bezier::Bezier),
   /// smothstep.
   Smoothstep(crate::interpolation::smoothstep::Smoothstep),
   /// custom easing function.
