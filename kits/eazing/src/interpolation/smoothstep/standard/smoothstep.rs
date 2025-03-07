@@ -12,7 +12,6 @@ use libm::{asinf, sinf};
 ///
 /// let p = InSmooth.y(1.0);
 /// ```
-
 #[derive(Debug)]
 pub struct InSmooth;
 
