@@ -2,7 +2,10 @@ mod bench;
 
 use bench::bezier;
 use bench::oscillatory::{bounce, elastic};
-use bench::polynomial::{bench_linear, cubic, quadratic, quartic};
+
+use bench::polynomial::{
+  bench_linear, cubic, quadratic, quartic, quintic, sextic,
+};
 
 use criterion::{criterion_group, criterion_main};
 
@@ -15,14 +18,18 @@ criterion_group!(
   quadratic::bench_in_quadratic::in_quadratic,
   quadratic::bench_in_out_quadratic::in_out_quadratic,
   quadratic::bench_out_quadratic::out_quadratic,
-  // polynomial:quartic.
-  quartic::bench_in_quartic::in_quartic,
-  quartic::bench_in_out_quartic::in_out_quartic,
-  quartic::bench_out_quartic::out_quartic,
   // polynomial:cubic.
   cubic::bench_in_cubic::in_cubic,
   cubic::bench_in_out_cubic::in_out_cubic,
   cubic::bench_out_cubic::out_cubic,
+  // polynomial:quartic.
+  quartic::bench_in_quartic::in_quartic,
+  quartic::bench_in_out_quartic::in_out_quartic,
+  quartic::bench_out_quartic::out_quartic,
+  // polynomial:quintic.
+  quintic::bench_in_quintic::in_quintic,
+  quintic::bench_in_out_quintic::in_out_quintic,
+  quintic::bench_out_quintic::out_quintic,
 
   // oscillatory:bounce.
   bounce::bench_in_bounce::in_bounce,

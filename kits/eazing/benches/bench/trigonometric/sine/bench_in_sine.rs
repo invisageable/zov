@@ -1,7 +1,7 @@
 use criterion::{black_box, Criterion};
 
-pub fn out_cubic(c: &mut Criterion) {
-  let mut group = c.benchmark_group("out_cubic");
+pub fn in_sine(c: &mut Criterion) {
+  let mut group = c.benchmark_group("in_sine");
 
   group
     .confidence_level(0.99)
@@ -14,12 +14,12 @@ pub fn out_cubic(c: &mut Criterion) {
     .collect::<Vec<_>>();
 
   group.bench_function("eazing", |b| {
-    use eazing::polynomial::cubic::OutCubic;
+    use eazing::trigonometric::sine::InSine;
     use eazing::Curve;
 
     b.iter(|| {
       let _ =
-        black_box(nums.iter().map(|num| OutCubic.y(*num)).collect::<Vec<_>>());
+        black_box(nums.iter().map(|num| InSine.y(*num)).collect::<Vec<_>>());
     })
   });
 
@@ -29,7 +29,7 @@ pub fn out_cubic(c: &mut Criterion) {
         nums
           .iter()
           .map(|num| {
-            bevy_tween::interpolation::EaseFunction::CubicOut.sample(*num)
+            bevy_tween::interpolation::EaseFunction::SineIn.sample(*num)
           })
           .collect::<Vec<_>>(),
       );
@@ -41,7 +41,7 @@ pub fn out_cubic(c: &mut Criterion) {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| easings::cubic_out(*num as f64))
+          .map(|num| easings::sin_in(*num as f64))
           .collect::<Vec<_>>(),
       );
     })
@@ -52,18 +52,7 @@ pub fn out_cubic(c: &mut Criterion) {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| emath::easing::cubic_out(*num))
-          .collect::<Vec<_>>(),
-      );
-    })
-  });
-
-  group.bench_function("glissade", |b| {
-    b.iter(|| {
-      let _ = black_box(
-        nums
-          .iter()
-          .map(|num| glissade::Easing::QuarticIn.ease(*num))
+          .map(|num: &f32| emath::easing::sin_in(*num))
           .collect::<Vec<_>>(),
       );
     })
@@ -74,22 +63,7 @@ pub fn out_cubic(c: &mut Criterion) {
 
     b.iter(|| {
       let _ =
-        black_box(nums.iter().map(|num| num.quartic_in()).collect::<Vec<_>>());
-    })
-  });
-
-  group.bench_function("keyframe", |b| {
-    use keyframe::EasingFunction;
-
-    let quartic = keyframe::functions::EaseInQuart::default();
-
-    b.iter(|| {
-      let _ = black_box(
-        nums
-          .iter()
-          .map(|num| quartic.y(*num as f64))
-          .collect::<Vec<_>>(),
-      );
+        black_box(nums.iter().map(|num| num.sine_in()).collect::<Vec<_>>());
     })
   });
 
@@ -98,7 +72,7 @@ pub fn out_cubic(c: &mut Criterion) {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| simple_easing2::quart_in(*num))
+          .map(|num| simple_easing2::sine_in(*num))
           .collect::<Vec<_>>(),
       );
     })

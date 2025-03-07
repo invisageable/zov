@@ -35,7 +35,7 @@ eazing is extremely fast and meticulously optimized its a perfect match for prec
     - [x] expoe.
   - [x] logarithmic.
     - [x] log10.
-  - [x] root-based.
+  - [x] root.
     - [x] sqrt.
   - [x] oscillatory.
     - [x] elastic.

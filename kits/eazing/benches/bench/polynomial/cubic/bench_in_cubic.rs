@@ -47,6 +47,17 @@ pub fn in_cubic(c: &mut Criterion) {
     })
   });
 
+  group.bench_function("emath", |b| {
+    b.iter(|| {
+      let _ = black_box(
+        nums
+          .iter()
+          .map(|num| emath::easing::cubic_in(*num))
+          .collect::<Vec<_>>(),
+      );
+    })
+  });
+
   group.bench_function("glissade", |b| {
     b.iter(|| {
       let _ = black_box(

@@ -14,12 +14,12 @@ pub fn out_cubic(c: &mut Criterion) {
     .collect::<Vec<_>>();
 
   group.bench_function("eazing", |b| {
-    use eazing::polynomial::cubic::OutCubic;
+    use eazing::trigonometric::circle::OutCircle;
     use eazing::Curve;
 
     b.iter(|| {
       let _ =
-        black_box(nums.iter().map(|num| OutCubic.y(*num)).collect::<Vec<_>>());
+        black_box(nums.iter().map(|num| OutCircle.y(*num)).collect::<Vec<_>>());
     })
   });
 
@@ -29,7 +29,7 @@ pub fn out_cubic(c: &mut Criterion) {
         nums
           .iter()
           .map(|num| {
-            bevy_tween::interpolation::EaseFunction::CubicOut.sample(*num)
+            bevy_tween::interpolation::EaseFunction::CircularOut.sample(*num)
           })
           .collect::<Vec<_>>(),
       );
@@ -41,7 +41,7 @@ pub fn out_cubic(c: &mut Criterion) {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| easings::cubic_out(*num as f64))
+          .map(|num| easings::circular_out(*num as f64))
           .collect::<Vec<_>>(),
       );
     })
@@ -52,18 +52,7 @@ pub fn out_cubic(c: &mut Criterion) {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| emath::easing::cubic_out(*num))
-          .collect::<Vec<_>>(),
-      );
-    })
-  });
-
-  group.bench_function("glissade", |b| {
-    b.iter(|| {
-      let _ = black_box(
-        nums
-          .iter()
-          .map(|num| glissade::Easing::QuarticIn.ease(*num))
+          .map(|num| emath::easing::circular_out(*num))
           .collect::<Vec<_>>(),
       );
     })
@@ -73,21 +62,10 @@ pub fn out_cubic(c: &mut Criterion) {
     use interpolation::Ease;
 
     b.iter(|| {
-      let _ =
-        black_box(nums.iter().map(|num| num.quartic_in()).collect::<Vec<_>>());
-    })
-  });
-
-  group.bench_function("keyframe", |b| {
-    use keyframe::EasingFunction;
-
-    let quartic = keyframe::functions::EaseInQuart::default();
-
-    b.iter(|| {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| quartic.y(*num as f64))
+          .map(|num| num.circular_out())
           .collect::<Vec<_>>(),
       );
     })
@@ -98,7 +76,7 @@ pub fn out_cubic(c: &mut Criterion) {
       let _ = black_box(
         nums
           .iter()
-          .map(|num| simple_easing2::quart_in(*num))
+          .map(|num| simple_easing2::circ_out(*num))
           .collect::<Vec<_>>(),
       );
     })

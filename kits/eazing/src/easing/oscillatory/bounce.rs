@@ -11,8 +11,6 @@ use crate::easing::Curve;
 /// use eazing::standard::bounce::InBounce;
 ///
 /// let p = InBounce.y(1.0);
-///
-/// assert_eq!(p, 1.0);
 /// ```
 #[derive(Debug)]
 pub struct InBounce;
@@ -24,32 +22,11 @@ impl Curve for InBounce {
   }
 }
 
-/// ### The [`InOutBounce`] Easing Function.
-///
-/// #### examples.
-///
-/// ```rust
-/// use eazing::Curve;
-/// use eazing::standard::bounce::InOutBounce;
-///
-/// let p = InOutBounce.y(1.0);
-///
-/// assert_eq!(p, 1.0);
-/// ```
-#[derive(Debug)]
-pub struct InOutBounce;
+#[test]
+fn test_in_bounce() {
+  let p = InBounce.y(1.0);
 
-impl Curve for InOutBounce {
-  #[inline]
-  fn y(&self, p: f32) -> f32 {
-    let t = p * 2.0;
-
-    if t < 1.0 {
-      return 0.5 - 0.5 * OutBounce.y(1.0 - t);
-    }
-
-    0.5 + 0.5 * OutBounce.y(t - 1.0)
-  }
+  assert_eq!(p, 1.0);
 }
 
 /// ### [`OutBounce`] Easing Function.
@@ -60,8 +37,6 @@ impl Curve for InOutBounce {
 /// use eazing::Curve;
 /// use eazing::standard::bounce::OutBounce;
 /// let p = OutBounce.y(1.0);
-///
-/// assert_eq!(p, 1.0);
 /// ```
 #[derive(Debug)]
 pub struct OutBounce;
@@ -95,4 +70,44 @@ impl Curve for OutBounce {
       k0 * t * t + 0.984375 // --- 63/64
     }
   }
+}
+
+#[test]
+fn test_out_bounce() {
+  let p = OutBounce.y(1.0);
+
+  assert_eq!(p, 1.0);
+}
+
+/// ### The [`InOutBounce`] Easing Function.
+///
+/// #### examples.
+///
+/// ```rust
+/// use eazing::Curve;
+/// use eazing::standard::bounce::InOutBounce;
+///
+/// let p = InOutBounce.y(1.0);
+/// ```
+#[derive(Debug)]
+pub struct InOutBounce;
+
+impl Curve for InOutBounce {
+  #[inline]
+  fn y(&self, p: f32) -> f32 {
+    let t = p * 2.0;
+
+    if t < 1.0 {
+      return 0.5 - 0.5 * OutBounce.y(1.0 - t);
+    }
+
+    0.5 + 0.5 * OutBounce.y(t - 1.0)
+  }
+}
+
+#[test]
+fn test_in_out_bounce() {
+  let p = InOutBounce.y(1.0);
+
+  assert_eq!(p, 1.0);
 }

@@ -18,6 +18,7 @@ use crate::easing::Curve;
 ///
 /// let p = InCubic.y(1.0);
 /// ```
+/// `f(t) = 2.0^(10.0 * (t - 1.0))`
 #[derive(Debug)]
 pub struct InCubic;
 
