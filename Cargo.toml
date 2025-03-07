@@ -1,0 +1,34 @@
+[workspace]
+resolver = '2'
+members = ["kits/eazing"]
+exclude = [".todo.md", ".github/*"]
+# default-members = ["crates/zov"]
+
+[workspace.package]
+authors = ["@invisageable"]
+edition = "2021"
+license = "APACHE — MIT"
+repository = "https://github.com/invisageable/zov"
+version = "0.0.0"
+
+[workspace.dependencies]
+# internal:kits.
+eazing = { path = "kits/eazing", version = "0.0.0" }
+
+# external:crates.
+criterion = { version = "0.4", features = ["html_reports"] }
+libm = "0.2.8"
+lyon_geom = { version = "1.0.5", default-features = false }
+rand = "0.8.5"
+
+# criterion = "0.5.1"
+# libm = "0.2.11"
+# lyon_geom = "1.0.6"
+# rand = "0.9.0"
+
+[profile.release]
+codegen-units = 1 # ..
+debug = true      # ..
+lto = true        # ..
+opt-level = 3     # better optimization — alternative ("z").
+strip = true      # ..
