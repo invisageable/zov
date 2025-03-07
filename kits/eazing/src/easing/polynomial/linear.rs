@@ -13,6 +13,10 @@ use crate::easing::Curve;
 /// #### examples.
 ///
 /// ```
+/// use eazing::Curve;
+/// use eazing::polynomial::linear::Linear;
+///
+/// let p = Linear.y(1.0);
 /// ```
 #[derive(Debug)]
 pub struct Linear;
@@ -24,15 +28,9 @@ impl Curve for Linear {
   }
 }
 
-#[cfg(test)]
-mod tests {
-  use super::Linear;
-  use crate::easing::Curve;
+#[test]
+fn test_linear() {
+  let p = Linear.y(100.0);
 
-  #[test]
-  fn test_linear() {
-    let p = Linear.y(100.0);
-
-    assert_eq!(p, 100.0);
-  }
+  assert_eq!(p, 100.0);
 }
