@@ -2,6 +2,8 @@ pub mod polynomial;
 pub mod standard;
 pub mod trigonometric;
 
+use crate::Curve;
+
 /// The [`Smoothstep`] Interpolation.
 #[derive(Debug)]
 pub enum Smoothstep {
