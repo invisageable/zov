@@ -4,6 +4,7 @@ pub mod cubic;
 pub mod decic;
 pub mod hectic;
 pub mod linear;
+pub mod none;
 pub mod nonic;
 pub mod octic;
 pub mod quadratic;
