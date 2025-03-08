@@ -9,7 +9,6 @@ version.workspace = true
 
 keywords = [
   "easing",
-  "easing functions",
   "interpolation",
   "gamedev",
 ]
