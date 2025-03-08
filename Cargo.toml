@@ -1,6 +1,6 @@
 [workspace]
 resolver = '2'
-members = ["kits/eazing"]
+members = ["sources/eazing"]
 exclude = [".todo.md", ".github/*"]
 # default-members = ["crates/zov"]
 
@@ -12,8 +12,8 @@ repository = "https://github.com/invisageable/zov"
 version = "0.0.0"
 
 [workspace.dependencies]
-# internal:kits.
-eazing = { path = "kits/eazing", version = "0.0.0" }
+# internal:sources.
+eazing = { path = "sources/eazing", version = "0.0.0" }
 
 # external:crates.
 criterion = { version = "0.4", features = ["html_reports"] }
