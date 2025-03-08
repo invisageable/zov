@@ -9,15 +9,15 @@ authors = ["@invisageable"]
 edition = "2021"
 license = "Apache-2.0 OR MIT"
 repository = "https://github.com/invisageable/zov"
-version = "0.0.0"
+version = "0.0.1"
 
 [workspace.dependencies]
 # internal:sources.
-data = { path = "sources/data", version = "0.0.0" }
-eazing = { path = "sources/eazing", version = "0.0.0" }
+data = { path = "sources/data", version = "0.0.1" }
+eazing = { path = "sources/eazing", version = "0.0.1" }
 
 # internal:apps.
-raplord = { path = "apps/raplord", version = "0.0.0" }
+raplord = { path = "apps/raplord", version = "0.0.1" }
 
 # external:crates.
 criterion = { version = "0.5.1", features = ["html_reports"] }

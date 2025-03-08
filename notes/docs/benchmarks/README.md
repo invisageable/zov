@@ -1,4 +1,4 @@
-# doc — benchmarks.
+# docs — benchmarks.
 
 ## summary.
 

@@ -2,4 +2,4 @@
 
 ## summary.
 
-- [DoC](./doc)
+- [DoCS](./docs)
