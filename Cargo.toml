@@ -7,7 +7,7 @@ exclude = [".todo.md", ".github/*"]
 [workspace.package]
 authors = ["@invisageable"]
 edition = "2021"
-license = "APACHE — MIT"
+license = "Apache-2.0 OR MIT"
 repository = "https://github.com/invisageable/zov"
 version = "0.0.0"
 
