@@ -1,6 +1,6 @@
 [workspace]
 resolver = '2'
-members = ["sources/data", "sources/eazing", "apps/raplord"]
+members = ["sources/eazing", "apps/raplord"]
 exclude = [".todo.md", ".github/*"]
 # default-members = ["crates/zov"]
 
@@ -13,7 +13,6 @@ version = "0.0.1"
 
 [workspace.dependencies]
 # internal:sources.
-data = { path = "sources/data", version = "0.0.1" }
 eazing = { path = "sources/eazing", version = "0.0.1" }
 
 # internal:apps.

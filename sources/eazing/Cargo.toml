@@ -25,7 +25,6 @@ lyon_geom = { workspace = true, default-features = false }
 
 [dev-dependencies]
 criterion = { workspace = true }
-data = { workspace = true }
 rand = { workspace = true }
 
 # bench:only.
