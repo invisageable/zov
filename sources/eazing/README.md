@@ -45,6 +45,25 @@ eazing iS EXTREMELY FAST AND METiCuLouSLY oPTiMiZED iTS A PERFECT MATCH FoR PREC
     - [x] BouNCE.
   - [x] BACKTRACKiNG.
     - [x] BACK.
+- [x] iNTERPoLATioN.
+  - [x] LiNEAR.
+    - [x] LERP.
+  - [x] PoLYNoMiAL.
+    - [x] SMooTHSTEP.
+    - [x] SMooTHERSTEP
+    - [x] CuBiC.
+    - [x] QuARTiC.
+    - [x] QuiNTiC.
+    - [ ] LAGRANGE.
+    - [ ] NEWToN.
+  - [x] RATioNAL.
+    - [x] QuADRATiC
+    - [x] CuBiC.
+  - [x] PiECEWiZE.
+    - [ ] PoLYNoMiAL
+    - [x] QuADRATiC
+  - [x] TRiGoNoMETRiC
+    - [x] SiNuSoiDAL.
 
 ## benches.
 
