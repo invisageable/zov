@@ -15,6 +15,39 @@ eazing iS AN iNNoVATioNAL, AToMiC AND ENHANCED `EASiNG FuNCTioNS` KiT FoR CREATi
 
 eazing iS EXTREMELY FAST AND METiCuLouSLY oPTiMiZED iTS A PERFECT MATCH FoR PRECiSioN oR SoPHiSTiCATED PROGRAMS — SuCH AS Gui, GAME ENGiNE, PLoTS, WEB AND NATiVE APPLiCATioN.    
 
+## example.
+
+**uSiNG AN EASiNG FuNCTioN.**
+
+```rs
+use eazing::backtracking::back::InBack;
+use eazing::Curve;
+
+fn main() {
+  println!("backtracking:in_back", InBack.y(0.5));
+}
+```
+
+**uSiNG THE `ease` FuNCTioN.**
+
+```rs
+use eazing::{ease, Easing};
+
+fn main() {
+  let mut time = 0.0; // current time.
+  let duration = 4.0; // animation time.
+  let mut p = 0.0;
+
+  while time <= duration {
+    // inside this loop until the time expires.
+    p = ease(Box::new(Easing::InOutBack), time / duration, 0.0, 1.0); // interpolates "p" value from 0 to 1.
+    time += 1.0; // adds one millisecond to the elapsed time..
+  }
+}
+```
+
+MoRE EXAMPLES ARE ALREADY iMPLEMENTS iN THE [`examples`](./examples) FoLDER.    
+
 ## functions.
 
 - [x] EASiNG.
@@ -67,9 +100,9 @@ eazing iS EXTREMELY FAST AND METiCuLouSLY oPTiMiZED iTS A PERFECT MATCH FoR PREC
 
 ## benches.
 
-BENCHES ARE DoNE iN CoMPARiSON BETWEEN `bevy_tween`, `glissade`, `emath`, `easings`, `keyframe`, `interpolation`, `simple-easing2` CRATES.    
+BENCHES ARE DoNE iN CoMPARiSON BETWEEN `bevy_tween`, `easings`, `emath`, `glissade`, `interpolation`, `keyframe`, `simple-easing2` CRATES. MoST oF THEM ARE FoLLoW THE RoBERT PENNER'S EASiNG FuNCTioNS, THEY oNLY iMPLEMENTED THE BASiCS oNE. REGARDiNG PERFoRMANCE SoME oF ouR iMPLEMENTATioNS ARE SLiGHTLY FASTER, So DEPENDiNG YouR NEEDED, You SHouLD TRY eazing. THE SAMPLE BELoW CoNFiRM THAT ouR EASiNG FuNCTiONS ARE PRETTY WELL oPTiMiZED.
 
-BECAuSE MoST oF THEM ARE FoLLoW THE RoBERT PENNER'S EASiNG FuNCTioNS, THEY oNLY iMPLEMENTED THE BASiCS.     
+![bench-in-back-average-time](../../notes/misc/bench-in-back-average-time.png)
 
 You CAN RuN BENCHMARKS WiTH THE FoLLoWiNG CoMMAND: `cargo bench -- <bench-name>`.   
 
