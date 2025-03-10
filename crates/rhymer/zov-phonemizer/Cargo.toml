@@ -9,3 +9,7 @@ edition.workspace = true
 # internal:crates.
 
 # external:crates.
+
+[dependencies.pyo3]
+version = "0.24.0"
+features = ["auto-initialize"]

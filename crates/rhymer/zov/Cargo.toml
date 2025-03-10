@@ -8,7 +8,5 @@ edition.workspace = true
 
 # internal:crates.
 zov-driver = { workspace = true }
-zov-phonemes = { workspace = true }
-zov-tokens = { workspace = true }
 
 # external:crates.

@@ -46,17 +46,17 @@ pub enum Oral {
 impl std::fmt::Display for Oral {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
-      Self::CloseFrontUnrounded => write!(f, "i"),
-      Self::CloseMidFrontUnrounded => write!(f, "e"),
-      Self::OpenMidFrontUnrounded => write!(f, "ɛ"),
-      Self::OpenFrontUnrounded => write!(f, "a"),
-      Self::OpenBackUnrounded => write!(f, "ɑ"),
-      Self::CloseMidBackRounded => write!(f, "o"),
-      Self::OpenMidBackRounded => write!(f, "ɔ"),
-      Self::CloseBackRounded => write!(f, "u"),
-      Self::CloseFrontRounded => write!(f, "y"),
-      Self::CloseMidFrontRounded => write!(f, "ø"),
-      Self::OpenMidFrontRounded => write!(f, "œ"),
+      Self::CloseFrontUnrounded => write!(f, "[i]"),
+      Self::CloseMidFrontUnrounded => write!(f, "[e]"),
+      Self::OpenMidFrontUnrounded => write!(f, "[ɛ]"),
+      Self::OpenFrontUnrounded => write!(f, "[a]"),
+      Self::OpenBackUnrounded => write!(f, "[ɑ]"),
+      Self::CloseMidBackRounded => write!(f, "[o]"),
+      Self::OpenMidBackRounded => write!(f, "[ɔ]"),
+      Self::CloseBackRounded => write!(f, "[u]"),
+      Self::CloseFrontRounded => write!(f, "[y]"),
+      Self::CloseMidFrontRounded => write!(f, "[ø]"),
+      Self::OpenMidFrontRounded => write!(f, "[œ]"),
     }
   }
 }
@@ -77,10 +77,10 @@ pub enum Nasal {
 impl std::fmt::Display for Nasal {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
-      Self::OpenBack => write!(f, "ɑ̃"),
-      Self::OpenMidFront => write!(f, "ɛ̃"),
-      Self::OpenMidFrontRounded => write!(f, "œ̃"),
-      Self::OpenMidBack => write!(f, "ɔ̃"),
+      Self::OpenBack => write!(f, "[ɑ̃]"),
+      Self::OpenMidFront => write!(f, "[ɛ̃]"),
+      Self::OpenMidFrontRounded => write!(f, "[œ̃]"),
+      Self::OpenMidBack => write!(f, "[ɔ̃]"),
     }
   }
 }

@@ -3952,13 +3952,15 @@ name = "zov"
 version = "0.0.1"
 dependencies = [
  "zov-driver",
- "zov-phonemes",
- "zov-tokens",
 ]
 
 [[package]]
 name = "zov-driver"
 version = "0.0.1"
+dependencies = [
+ "zov-rhymer",
+ "zov-session",
+]
 
 [[package]]
 name = "zov-interner"
@@ -3969,6 +3971,26 @@ dependencies = [
 
 [[package]]
 name = "zov-phonemes"
+version = "0.0.1"
+
+[[package]]
+name = "zov-rhymer"
+version = "0.0.1"
+dependencies = [
+ "zov-phonemes",
+ "zov-tokenizer",
+ "zov-tokens",
+]
+
+[[package]]
+name = "zov-session"
+version = "0.0.1"
+dependencies = [
+ "zov-interner",
+]
+
+[[package]]
+name = "zov-tokenizer"
 version = "0.0.1"
 
 [[package]]

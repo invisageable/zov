@@ -39,6 +39,7 @@ raplord = { path = "apps/raplord", version = "0.0.1" }
 criterion = { version = "0.5.1", features = ["html_reports"] }
 libm = "0.2.8"
 lyon_geom = { version = "1.0.5", default-features = false }
+pyo3 = "0.24.0"
 rand = "0.9.0"
 smol_str = "0.3.2"
 

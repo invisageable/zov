@@ -42,12 +42,12 @@ pub enum Plosive {
 impl std::fmt::Display for Plosive {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
-      Self::VoicelessBilabial => write!(f, "p"),
-      Self::VoicedBilabial => write!(f, "b"),
-      Self::VoicelessAlveolar => write!(f, "t"),
-      Self::VoicedAlveolar => write!(f, "d"),
-      Self::VoicelessVelar => write!(f, "k"),
-      Self::VoicedVelar => write!(f, "g"),
+      Self::VoicelessBilabial => write!(f, "[p]"),
+      Self::VoicedBilabial => write!(f, "[b]"),
+      Self::VoicelessAlveolar => write!(f, "[t]"),
+      Self::VoicedAlveolar => write!(f, "[d]"),
+      Self::VoicelessVelar => write!(f, "[k]"),
+      Self::VoicedVelar => write!(f, "[g]"),
     }
   }
 }
@@ -66,9 +66,9 @@ pub enum Nasal {
 impl std::fmt::Display for Nasal {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
-      Self::Bilabial => write!(f, "m"),
-      Self::Alveolar => write!(f, "n"),
-      Self::Palatal => write!(f, "ɲ"),
+      Self::Bilabial => write!(f, "[m]"),
+      Self::Alveolar => write!(f, "[n]"),
+      Self::Palatal => write!(f, "[ɲ]"),
     }
   }
 }
@@ -93,12 +93,12 @@ pub enum Fricative {
 impl std::fmt::Display for Fricative {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
-      Self::VoicelessLabiodental => write!(f, "f"),
-      Self::VoicelessAlveolar => write!(f, "s"),
-      Self::VoicelessPostalveolar => write!(f, "ʃ"),
-      Self::VoicedLabiodental => write!(f, "v"),
-      Self::VoicedAlveolar => write!(f, "z"),
-      Self::VoicedPostalveolar => write!(f, "ʒ"),
+      Self::VoicelessLabiodental => write!(f, "[f]"),
+      Self::VoicelessAlveolar => write!(f, "[s]"),
+      Self::VoicelessPostalveolar => write!(f, "[ʃ]"),
+      Self::VoicedLabiodental => write!(f, "[v]"),
+      Self::VoicedAlveolar => write!(f, "[z]"),
+      Self::VoicedPostalveolar => write!(f, "[ʒ]"),
     }
   }
 }
@@ -106,17 +106,18 @@ impl std::fmt::Display for Fricative {
 /// The representation of a liquid consonant.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Liquid {
-  /// A alveolar lateral approximant — `[l]` i.e `ivre`, `vouloir`, `cheval`.
+  /// An alveolar lateral approximant — `[l]` i.e `ivre`, `vouloir`, `cheval`.
   AlveolarLateralApproximant,
-  /// A alveolar trill — `[r]` i.e `rouge`, `grand`, `venir`.
+  /// An alveolar trill — `[r]` i.e `rouge`, `grand`, `venir`.
   AlveolarTrill,
+  // note(ivs) — what about the `[ʀ]`, `[ʁ]` which is an alveolar trill `[r]`.
 }
 
 impl std::fmt::Display for Liquid {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     match self {
-      Self::AlveolarLateralApproximant => write!(f, "l"),
-      Self::AlveolarTrill => write!(f, "r"),
+      Self::AlveolarLateralApproximant => write!(f, "[l]"),
+      Self::AlveolarTrill => write!(f, "[r]"),
     }
   }
 }

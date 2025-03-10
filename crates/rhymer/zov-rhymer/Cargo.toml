@@ -7,5 +7,8 @@ edition.workspace = true
 # internal:source.
 
 # internal:crates.
+zov-phonemes = { workspace = true }
+zov-tokenizer = { workspace = true }
+zov-tokens = { workspace = true }
 
 # external:crates.
