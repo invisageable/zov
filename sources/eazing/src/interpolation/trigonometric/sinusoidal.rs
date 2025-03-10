@@ -1,8 +1,21 @@
+//! The Sinusoidal Interpolating Trigonometric Curve.
+
 use crate::easing::Curve;
 
 use libm::{acosf, cosf};
 
 /// The [`InSinusoidal`] Curve.
+///
+/// #### examples.
+///
+/// ```
+/// use eazing::interpolation::trigonometric::sinusoidal::InSinusoidal;
+/// use eazing::Curve;
+///
+/// let p = InSinusoidal.y(0.8);
+///
+/// assert_eq!(p, 0.90450853);
+/// ```
 #[derive(Debug)]
 pub struct InSinusoidal;
 
@@ -21,6 +34,17 @@ fn test_in_sinusoidal() {
 }
 
 /// The [`OutSinusoidal`] Curve.
+///
+/// #### examples.
+///
+/// ```
+/// use eazing::interpolation::trigonometric::sinusoidal::OutSinusoidal;
+/// use eazing::Curve;
+///
+/// let p = OutSinusoidal.y(1.0);
+///
+/// assert_eq!(p, 0.99999994);
+/// ```
 #[derive(Debug)]
 pub struct OutSinusoidal;
 

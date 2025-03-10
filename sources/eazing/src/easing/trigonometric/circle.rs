@@ -2,7 +2,6 @@
 
 use crate::easing::Curve;
 
-// #[cfg(feature = "libm")]
 use libm::sqrtf;
 
 /// ### The [`InCircle`] Easing Function.

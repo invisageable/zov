@@ -14,7 +14,7 @@
 
 | NAME   | DESCRiPTioN                         |
 | :----- | :---------------------------------- |
-| eazing | *optimized `easing functions` kit.* |
+| eazing | *oPTiMiZED `EASiNG FuNCTiONS` KiT.* |
 
 ## contributing.
 
@@ -24,4 +24,4 @@ FEEL FREE To oPEN AN iSSuE iF You WANT To CoNTRiBuTE. ALSo You CAN CoNTACT uS AT
 
 [APACHE](https://github.com/invisageable/zov/blob/main/.github/LICENSE-APACHE) — [MIT](https://github.com/invisageable/zov/blob/main/.github/LICENSE-MIT)   
 
-Copyright (c) 07 July 2024 — present, [@invisageable](https://github.com/invisageable).     
+CoPYRiGHT (c) **07** JuLY **2024** — *present, [@invisageable](https://github.com/invisageable).*     

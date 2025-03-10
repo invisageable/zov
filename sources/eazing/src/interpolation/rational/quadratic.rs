@@ -1,4 +1,4 @@
-//! The Rational Quadratic Interpolation.
+//! The Quadratic Interpolating Rational Curve.
 
 use crate::easing::Curve;
 

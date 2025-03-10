@@ -1,10 +1,21 @@
-//! The Piecewize Quadratic Interpolation.
+//! The Piecewize Quadratic Curve.
 
 use crate::easing::Curve;
 
 use libm::sqrtf;
 
 /// The [`InPiecewizeQuadratic`] Curve.
+///
+/// #### examples.
+///
+/// ```
+/// use eazing::interpolation::piecewize::quadratic::InPiecewizeQuadratic;
+/// use eazing::Curve;
+///
+/// let p = InPiecewizeQuadratic.y(1.0);
+///
+/// assert_eq!(p, 1.0);
+/// ```
 #[derive(Debug)]
 pub struct InPiecewizeQuadratic;
 
@@ -27,6 +38,17 @@ fn test_in_piecewize_quadratic() {
 }
 
 /// The [`OutPiecewizeQuadratic`] Curve.
+///
+/// #### examples.
+///
+/// ```
+/// use eazing::interpolation::piecewize::quadratic::InPiecewizeQuadratic;
+/// use eazing::Curve;
+///
+/// let p = OutPiecewizeQuadratic.y(1.0);
+///
+/// assert_eq!(p, 1.0);
+/// ```
 #[derive(Debug)]
 pub struct OutPiecewizeQuadratic;
 

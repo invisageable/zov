@@ -45,23 +45,42 @@ pub trait Curve {
   /// #### examples.
   ///   
   /// ```rust
-  ///  use eazing::Curve;
+  /// use eazing::Curve;
   ///
-  ///  struct Constant;
+  /// struct Constant;
   ///  
-  ///  impl Curve for Constant {
-  ///    fn y(&self, p: f32) -> f32 {
-  ///      -f32::INFINITY
-  ///    }
-  ///  }
+  /// impl Curve for Constant {
+  ///   fn y(&self, p: f32) -> f32 {
+  ///     -f32::INFINITY
+  ///   }
+  /// }
   ///  
-  ///  assert_eq!(Constant.y(0.0), -f32::INFINITY);
+  /// assert_eq!(Constant.y(0.0), -f32::INFINITY);
   /// ```
   fn y(&self, p: f32) -> f32;
 }
 
 /// ### The [`Ease`] Function Interface.
 pub trait Ease {
+  /// Computes the `y-axis` of the curve from a progress value.
+  ///     
+  /// #### params.
+  ///   
+  /// |     |                   |
+  /// |:----|:------------------|
+  /// | `p` | The elapsed time. |
+  /// | `a` | The start.        |
+  /// | `b` | The end.          |
+  ///
+  /// #### returns.
+  ///
+  /// `f32` — The progress of the `y-axis` value.
+  ///
+  /// ```
+  /// use eazing::ease;
+  ///
+  /// ease(0.5 / 4.0, 0.0, 1.0);
+  /// ```
   fn ease(p: f32, a: f32, b: f32) -> f32;
 }
 
@@ -155,9 +174,9 @@ pub enum Easing {
   InOutBack,
   // cubic bezier.
   CubicBezier(bezier::Bezier),
-  /// smothstep.
+  // interpolation.
   Interpolation(crate::interpolation::Interpolation),
-  /// custom easing function.
+  // custom easing function.
   Custom(std::boxed::Box<dyn Curve>),
 }
 

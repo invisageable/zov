@@ -1,0 +1,14 @@
+[package]
+name = "zov"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+zov-driver = { workspace = true }
+zov-phonemes = { workspace = true }
+zov-tokens = { workspace = true }
+
+# external:crates.

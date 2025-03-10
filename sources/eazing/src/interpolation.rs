@@ -7,11 +7,26 @@ pub mod trigonometric;
 use crate::Curve;
 
 /// ### The [`Interpolation`] Function User Access.
+///
+/// Wraps all interpolation functions in one place.
+///
+/// #### examples.
+///
+/// ```rust
+/// use eazing::interpolation::Interpolation;
+/// use eazing::Curve;
+///
+/// let p = Interpolation::InCubic.y(1.0);
+///
+/// assert_eq(p, 1.0);
+/// ```
 #[derive(Debug)]
 pub enum Interpolation {
   // constant.
   None,
-  Lerp,
+  // linear.
+  // #[default]
+  Linear,
   // polynomial:in.
   InCubic,
   InQuartic,
@@ -46,8 +61,8 @@ impl Curve for Interpolation {
   #[inline]
   fn y(&self, p: f32) -> f32 {
     match self {
-      Self::None => todo!(),
-      Self::Lerp => todo!(),
+      Self::None => polynomial::none::None.y(p),
+      Self::Linear => todo!(), // note(ivs) — a lerp fn with one parameter `p`.
       Self::InCubic => polynomial::cubic::InCubic.y(p),
       Self::InQuartic => polynomial::quartic::InQuartic.y(p),
       Self::InQuintic => polynomial::quintic::InQuintic.y(p),

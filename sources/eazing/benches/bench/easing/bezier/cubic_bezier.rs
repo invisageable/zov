@@ -27,5 +27,35 @@ pub fn cubic_bezier(c: &mut Criterion) {
     })
   });
 
+  group.bench_function("glissade", |b| {
+    b.iter(|| {
+      let _ = black_box(
+        nums
+          .iter()
+          .map(|_num| glissade::Easing::bezier(0.17, 0.67, 0.83, 0.67))
+          .collect::<Vec<_>>(),
+      );
+    })
+  });
+
+  group.bench_function("keyframe", |b| {
+    use keyframe::EasingFunction;
+
+    b.iter(|| {
+      let _ = black_box(
+        nums
+          .iter()
+          .map(|num| {
+            keyframe::functions::BezierCurve::from(
+              [0.17, 0.67].into(),
+              [0.83, 0.67].into(),
+            )
+            .y(*num as f64)
+          })
+          .collect::<Vec<_>>(),
+      );
+    })
+  });
+
   group.finish();
 }

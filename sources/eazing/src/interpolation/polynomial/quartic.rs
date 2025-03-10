@@ -1,4 +1,4 @@
-//! The Polynomial Quartic Interpolation.
+//! The Quartic Interpolating Polynomial Curve.
 
 use crate::easing::Curve;
 

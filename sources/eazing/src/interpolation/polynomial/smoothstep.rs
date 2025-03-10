@@ -1,3 +1,5 @@
+//! The Smoothstep Interpolating Polynomial Curve.
+
 use crate::easing::Curve;
 
 use libm::{asinf, sinf};

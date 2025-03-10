@@ -1,0 +1,11 @@
+[package]
+name = "zov-driver"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+
+# external:crates.

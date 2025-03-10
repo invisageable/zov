@@ -1,0 +1,13 @@
+[package]
+name = "zov-tokens"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+
+# external:crates.
+zov-interner = { workspace = true }
+zov-phonemes = { workspace = true }

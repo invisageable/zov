@@ -1,0 +1,11 @@
+[package]
+name = "zov-phonemizer"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+
+# external:crates.

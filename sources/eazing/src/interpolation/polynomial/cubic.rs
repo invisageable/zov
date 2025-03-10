@@ -1,4 +1,4 @@
-//! The Polynomial Cubic Interpolation.
+//! The Cubic Interpolating Polynomial Curve.
 
 use crate::easing::Curve;
 

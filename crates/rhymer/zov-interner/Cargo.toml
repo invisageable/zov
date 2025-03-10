@@ -1,0 +1,12 @@
+[package]
+name = "zov-interner"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+
+# external:crates.
+smol_str = { workspace = true }

@@ -1,0 +1,11 @@
+[package]
+name = "zov-phonemes"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+
+# external:crates.

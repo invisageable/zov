@@ -2,7 +2,6 @@
 
 use crate::easing::Curve;
 
-// #[cfg(feature = "libm")]
 use libm::{cosf, sinf};
 
 use core::f32::consts::PI;

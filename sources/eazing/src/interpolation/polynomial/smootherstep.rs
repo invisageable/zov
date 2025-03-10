@@ -1,3 +1,5 @@
+//! The Smootherstep Interpolating Polynomial Curve.
+
 use crate::easing::Curve;
 
 /// The [`InSmoother`] Curve.

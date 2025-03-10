@@ -1,4 +1,4 @@
-//! ## The Linear Interpolation.
+//! ## The Lerp Interpolating Linear Curve.
 
 // --- START of derived from `interpolation`.
 // origin: MIT https://github.com/PistonDevelopers/interpolation/blob/master/src/lerp.rs

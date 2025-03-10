@@ -1,0 +1,12 @@
+[package]
+name = "zov-session"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+zov-interner = { workspace = true }
+
+# external:crates.

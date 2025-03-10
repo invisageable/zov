@@ -1,4 +1,4 @@
-//! The Rational Cubic Interpolation.
+//! The Cubic Interpolating Rational Curve.
 
 use crate::easing::Curve;
 

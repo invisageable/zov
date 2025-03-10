@@ -1,4 +1,4 @@
-//! The Polynomial Quintic Interpolation.
+//! The Quintic Interpolating Polynomial Curve.
 
 use crate::easing::Curve;
 
@@ -33,7 +33,7 @@ impl Curve for OutQuintic {
 
 #[test]
 fn test_out_quintic() {
-  let _p = OutQuintic.y(1.0);
+  let p = OutQuintic.y(1.0);
 
-  // assert_eq!(p, 1.0);
+  assert_eq!(p, 1.0);
 }
