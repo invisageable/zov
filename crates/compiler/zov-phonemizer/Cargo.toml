@@ -1,0 +1,19 @@
+[package]
+name = "zov-phonemizer"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+zov-phonemes = { workspace = true }
+zov-reporter = { workspace = true }
+zov-tokens = { workspace = true }
+
+# external:crates.
+unicode-normalization = { workspace = true }
+
+[dependencies.pyo3]
+version = "0.24.0"
+features = ["auto-initialize"]

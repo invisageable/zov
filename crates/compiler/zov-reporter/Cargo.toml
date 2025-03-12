@@ -1,0 +1,12 @@
+[package]
+name = "zov-reporter"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+
+# external:crates.
+anyhow = { workspace = true }

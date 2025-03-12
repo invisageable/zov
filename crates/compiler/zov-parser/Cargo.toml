@@ -1,0 +1,14 @@
+[package]
+name = "zov-parser"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+zov-ast = { workspace = true }
+zov-reporter = { workspace = true }
+zov-tokens = { workspace = true }
+
+# external:crates.

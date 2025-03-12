@@ -12,8 +12,8 @@ keywords = [
   "poetry",
 ]
 
-[lib]
-doc-test = false
+# [lib]
+# doc-test = false
 
 [dependencies]
 # internals.

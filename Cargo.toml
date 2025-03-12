@@ -3,12 +3,12 @@ resolver = '2'
 
 members = [
   "apps/raplord",
-  "crates/rhymer/zov",
+  "crates/compiler/zov",
   "sources/eazing",
 ]
 
 exclude = [".todo.md", ".github/*"]
-default-members = ["crates/rhymer/zov"]
+default-members = ["crates/compiler/zov"]
 
 [workspace.package]
 authors = ["@invisageable"]
@@ -19,15 +19,18 @@ version = "0.0.1"
 
 [workspace.dependencies]
 # internal:crates:zov.
-zov = { path = "crates/rhymer/zov", version = "0.0.1" }
-zov-driver = { path = "crates/rhymer/zov-driver", version = "0.0.1" }
-zov-interner = { path = "crates/rhymer/zov-interner", version = "0.0.1" }
-zov-phonemes = { path = "crates/rhymer/zov-phonemes", version = "0.0.1" }
-zov-phonemizer = { path = "crates/rhymer/zov-phonemizer", version = "0.0.1" }
-zov-rhymer = { path = "crates/rhymer/zov-rhymer", version = "0.0.1" }
-zov-session = { path = "crates/rhymer/zov-session", version = "0.0.1" }
-zov-tokenizer = { path = "crates/rhymer/zov-tokenizer", version = "0.0.1" }
-zov-tokens = { path = "crates/rhymer/zov-tokens", version = "0.0.1" }
+zov = { path = "crates/compiler/zov", version = "0.0.1" }
+zov-ast = { path = "crates/compiler/zov-ast", version = "0.0.1" }
+zov-compiler = { path = "crates/compiler/zov-compiler", version = "0.0.1" }
+zov-driver = { path = "crates/compiler/zov-driver", version = "0.0.1" }
+zov-interner = { path = "crates/compiler/zov-interner", version = "0.0.1" }
+zov-parser = { path = "crates/compiler/zov-parser", version = "0.0.1" }
+zov-phonemes = { path = "crates/compiler/zov-phonemes", version = "0.0.1" }
+zov-phonemizer = { path = "crates/compiler/zov-phonemizer", version = "0.0.1" }
+zov-reporter = { path = "crates/compiler/zov-reporter", version = "0.0.1" }
+zov-session = { path = "crates/compiler/zov-session", version = "0.0.1" }
+zov-tokenizer = { path = "crates/compiler/zov-tokenizer", version = "0.0.1" }
+zov-tokens = { path = "crates/compiler/zov-tokens", version = "0.0.1" }
 
 # internal:sources.
 eazing = { path = "sources/eazing", version = "0.0.1" }
@@ -36,12 +39,17 @@ eazing = { path = "sources/eazing", version = "0.0.1" }
 raplord = { path = "apps/raplord", version = "0.0.1" }
 
 # external:crates.
+anyhow = "1.0.97"
+clap = "4.5.32"
+clap_derive = "4.5.32"
 criterion = { version = "0.5.1", features = ["html_reports"] }
+egui = "0.31.1"
 libm = "0.2.8"
 lyon_geom = { version = "1.0.5", default-features = false }
 pyo3 = "0.24.0"
 rand = "0.9.0"
 smol_str = "0.3.2"
+unicode-normalization = "0.1.24"
 
 [profile.release]
 codegen-units = 1 # ..

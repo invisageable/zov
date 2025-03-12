@@ -1,0 +1,12 @@
+[package]
+name = "zov-ast"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+# internal:source.
+
+# internal:crates.
+zov-tokens = { workspace = true }
+
+# external:crates.
