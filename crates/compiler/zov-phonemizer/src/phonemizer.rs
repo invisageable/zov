@@ -3,6 +3,7 @@ use zov_reporter::Result;
 use zov_tokens::token::word::Syllable;
 use zov_tokens::token::{Token, TokenKind};
 
+use hyphenation::{Hyphenator, Iter, Language, Load, Standard};
 use pyo3::ffi::c_str;
 use pyo3::types::{PyAnyMethods, PyDict, PyModule};
 use pyo3::Python;
@@ -18,13 +19,19 @@ const PHONEME_CONSONANTS: &[&'static str] = &[
   "r", "ɲ", "j", "w", "ɥ",
 ];
 
+/// The representation of a Phonemizer.
 #[derive(Debug)]
-pub struct Phonemizer {}
+pub struct Phonemizer {
+  /// A hyphenator.
+  hyphenator: Standard,
+}
 
 impl Phonemizer {
-  /// ...
+  /// Creates a new [`Phonemizer`] instance.
   pub fn new() -> Self {
-    Self {}
+    Self {
+      hyphenator: Standard::from_embedded(Language::French).unwrap(),
+    }
   }
 
   fn is_phoneme_vowel(&self, phoneme: &str) -> bool {
@@ -60,30 +67,22 @@ impl Phonemizer {
           })
           .collect::<Vec<_>>();
 
-        // println!("{:?}", words);
-
         dict.set_item("lines", words).unwrap();
 
-        // let phonemes: Vec<String> =
-        //   phonemize_french.call1((dict,)).unwrap().extract().unwrap();
-
-        let phonemes: Vec<(String, String)> =
+        let phonemes: Vec<String> =
           phonemize_french.call1((dict,)).unwrap().extract().unwrap();
 
-        println!("{:?}", phonemes);
-
-        todo!()
-        // phonemes.into()
+        phonemes.into()
       });
 
     for token in tokens.iter_mut() {
       if let TokenKind::Word(word) = &mut token.kind
         && let Some(phoneme) = phonemes.pop_front()
       {
-        let syllables = self.syllabilize(word.to_string(), phoneme.clone())?;
+        let syllables = self.syllabilize(word.to_string(), &phoneme)?;
 
-        word.add_syllables(syllables);
-        word.add_phoneme(Phoneme::new(phoneme));
+        word.add_syllables(Some(syllables));
+        word.add_phoneme(Some(Phoneme::new(phoneme)));
       }
     }
 
@@ -94,27 +93,31 @@ impl Phonemizer {
   fn syllabilize(
     &mut self,
     word: String,
-    phoneme: String,
+    phoneme: &str,
   ) -> Result<Vec<Syllable>> {
-    let syllables = Vec::with_capacity(0usize);
+    let mut syllables = Vec::with_capacity(0usize);
+    let syllables_words = self.syllabilize_word(&word)?;
+    let _syllables_phonemes = self.syllabilize_phoneme(&phoneme)?;
 
-    let _ = self.syllabilize_word(&word)?;
-    let phonemes = self.syllabilize_phoneme(&phoneme)?;
+    // note(ivs) — ensure that `syllables_words` and `syllables_phonemes` have
+    // the same length.
+    for (_idx, syllable) in syllables_words.into_iter().enumerate() {
+      syllables.push(Syllable {
+        text: syllable,
+        phoneme: String::with_capacity(0usize), // syllables_phonemes[idx]
+      });
+    }
 
     println!("{} | {}", word, phoneme);
-    // println!("SYLLABLES.PHONEMES({:?})", phonemes);
 
     Ok(syllables)
   }
 
   /// ...
   fn syllabilize_word(&mut self, word: &str) -> Result<Vec<String>> {
-    let mut syllables: Vec<String> = Vec::with_capacity(0usize);
-    let mut current_syllables = Vec::with_capacity(0usize);
-
-    for ch in word.split("") {
-      current_syllables.push(ch);
-    }
+    let hyphenated = self.hyphenator.hyphenate(word);
+    let segments = hyphenated.iter().segments();
+    let syllables: Vec<String> = segments.map(|s| s.to_string()).collect();
 
     Ok(syllables)
   }
@@ -135,7 +138,7 @@ impl Phonemizer {
         let is_consonant = !is_vowel;
 
         if is_vowel {
-          syllables.push(current_syllable.join(" "));
+          syllables.push(current_syllable.join(""));
           current_syllable.clear();
         } else if is_consonant {
           if let Some(after_next_syllable) = phonemes.get(idx + 2) {
@@ -149,7 +152,7 @@ impl Phonemizer {
     }
 
     if !current_syllable.is_empty() {
-      syllables.push(current_syllable.join(" "));
+      syllables.push(current_syllable.join(""));
     }
 
     Ok(syllables)

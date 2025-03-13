@@ -13,7 +13,7 @@ def phonemize_french(text):
     # strip=False,
     # preserve_empty_lines=True,
     # preserve_punctuation=True,
-    prepend_text=True,
+    # prepend_text=True,
   )
 
   return phonemes

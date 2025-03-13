@@ -5,6 +5,8 @@ pub mod punctuation;
 pub mod quote;
 pub mod word;
 
+use punctuation::Punctuation;
+
 /// The representation of a token.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Token {
@@ -13,8 +15,10 @@ pub struct Token {
 }
 
 impl Token {
+  /// An EOF token.
   pub const EOF: Self = Self::new(TokenKind::Eof);
 
+  /// Creates a new [`Token`] instance.
   pub const fn new(kind: TokenKind) -> Self {
     Self { kind }
   }
@@ -54,8 +58,19 @@ pub enum TokenKind {
 }
 
 impl TokenKind {
+  /// Checks the token kind equality.
   pub fn is(&self, kind: Self) -> bool {
     *self == kind
+  }
+
+  /// Checks if the token kind is a line one.
+  pub fn is_line(&self, kind: Self) -> bool {
+    matches!(
+      self,
+      Self::Punctuation(Punctuation::Dot)
+        | Self::Punctuation(Punctuation::Exclamation)
+        | Self::Punctuation(Punctuation::Question)
+    )
   }
 }
 
@@ -69,7 +84,6 @@ impl std::fmt::Display for TokenKind {
       Self::Punctuation(punctuation) => write!(f, "{punctuation}"),
       Self::Quote(quote) => write!(f, "{quote}"),
       Self::Word(word) => write!(f, "{word}"),
-      // Self::Ident(word) => write!(f, "{word}"),
     }
   }
 }

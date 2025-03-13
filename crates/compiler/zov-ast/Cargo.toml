@@ -8,5 +8,6 @@ edition.workspace = true
 
 # internal:crates.
 zov-tokens = { workspace = true }
+zov-phonemes = { workspace = true }
 
 # external:crates.

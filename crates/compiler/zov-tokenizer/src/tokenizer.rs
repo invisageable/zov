@@ -77,7 +77,9 @@ impl Tokenizer {
             c if matches!(c, ' ') => self.state = State::Space,
             c if matches!(c, '\n') => self.state = State::Newline,
             // '(' => self.state = State::Group,
-            '.' => self.state = State::Punctuation,
+            c if matches!(c, '.' | '?' | '!') => {
+              self.state = State::Punctuation
+            }
             // '\"' => self.state = State::Quote,
             c if c.is_alphabetic() => self.state = State::Word,
             _ => self.state = State::Unknown,

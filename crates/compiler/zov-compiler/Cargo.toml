@@ -15,4 +15,5 @@ zov-tokenizer = { workspace = true }
 zov-tokens = { workspace = true }
 
 # external:crates.
+hyphenation = { workspace = true }
 unicode-normalization = { workspace = true }

@@ -7,6 +7,7 @@ pub enum Phase {
   Parsing,
 }
 
+/// The representation of a compiler.
 #[derive(Debug)]
 pub struct Compiler<const L: usize> {
   /// The compiler's phases.
@@ -14,10 +15,12 @@ pub struct Compiler<const L: usize> {
 }
 
 impl<const L: usize> Compiler<L> {
+  /// Creates a new [`Compiler`] instance.
   pub fn new(phases: [Phase; L]) -> Self {
     Self { phases }
   }
 
+  /// Executes the compiler phases.
   pub fn compile(&mut self) -> Result<()> {
     Ok(())
   }

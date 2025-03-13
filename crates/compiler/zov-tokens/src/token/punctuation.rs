@@ -48,8 +48,8 @@ impl std::fmt::Display for Punctuation {
 }
 
 impl From<&str> for Punctuation {
-  fn from(punc: &str) -> Self {
-    match punc {
+  fn from(punctuation: &str) -> Self {
+    match punctuation {
       "." => Self::Dot,
       ";" => Self::Semi,
       "," => Self::Comma,

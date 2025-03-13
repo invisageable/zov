@@ -70,10 +70,42 @@ impl<'tokens> Parser<'tokens> {
     match &self.token_current.kind {
       TokenKind::Space => self.parse_node_space(),
       TokenKind::Newline => self.parse_node_newline(),
+      _ => self.parse_node_line(),
+    }
+  }
+
+  /// ...
+  fn parse_subnode(&mut self) -> Result<Node> {
+    match &self.token_current.kind {
+      TokenKind::Space => self.parse_node_space(),
+      TokenKind::Newline => self.parse_node_newline(),
       TokenKind::Punctuation(_) => self.parse_node_punctuation(),
       TokenKind::Word(_) => self.parse_node_word(),
       _ => panic!(),
     }
+  }
+
+  /// ...
+  fn parse_node_line(&mut self) -> Result<Node> {
+    let mut nodes = Vec::with_capacity(0usize);
+
+    while !self.token_current.kind.is(TokenKind::Punctuation(
+      zov_tokens::token::punctuation::Punctuation::Dot,
+    )) {
+      // if self.token_current.is(TokenKind::Space) {
+      //   continue;
+      // }
+
+      nodes.push(self.parse_subnode()?);
+
+      self.next();
+    }
+
+    nodes.push(self.parse_subnode()?);
+
+    Ok(Node {
+      kind: NodeKind::Line(Box::new(nodes)),
+    })
   }
 
   /// ...
@@ -86,7 +118,7 @@ impl<'tokens> Parser<'tokens> {
   /// ...
   fn parse_node_newline(&mut self) -> Result<Node> {
     Ok(Node {
-      kind: NodeKind::LineBreak,
+      kind: NodeKind::Newline,
     })
   }
 

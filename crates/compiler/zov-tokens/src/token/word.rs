@@ -11,17 +11,14 @@ pub struct Word {
   /// A text format.
   pub text: String,
   /// An array of syllables.
-  pub syllables: Option<Vec<Syllable>>, // ["bon", "jour"]
+  pub syllables: Option<Vec<Syllable>>,
   /// A phoneme.
   pub phoneme: Option<Phoneme>,
 }
 
 impl Word {
   /// Creates a new [`Word`] instance.
-  pub fn new(
-    text: String,
-    // syllables: Option<&'static [Syllable]>
-  ) -> Self {
+  pub fn new(text: String) -> Self {
     Self {
       text,
       syllables: None,
@@ -29,12 +26,14 @@ impl Word {
     }
   }
 
-  pub fn add_phoneme(&mut self, phoneme: Phoneme) {
-    self.phoneme = Some(phoneme);
+  /// ...
+  pub fn add_phoneme(&mut self, phoneme: Option<Phoneme>) {
+    self.phoneme = phoneme;
   }
 
-  pub fn add_syllables(&mut self, syllables: Vec<Syllable>) {
-    self.syllables = Some(syllables);
+  /// ...
+  pub fn add_syllables(&mut self, syllables: Option<Vec<Syllable>>) {
+    self.syllables = syllables;
   }
 }
 
@@ -44,32 +43,17 @@ impl std::fmt::Display for Word {
   }
 }
 
-// #[derive(Debug, Clone)]
-// pub struct Word {
-//   pub text: String,
-//   pub syllables: Vec<Syllabe>,
-// }
-
-/// The representation of a syllable.
-// #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-// pub struct Syllable {
-//   /// A text format.
-//   text: Symbol,
-//   /// An array of phonemes.
-//   phonemes: &'static [Phoneme],
-// }
-
 /// The representation of a syllable.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Syllable {
   /// A text format.
-  pub text: String, // bon.
+  pub text: String,
   /// An array of phonemes.
-  pub phoneme: String, // "bɔ̃"
+  pub phoneme: String,
 }
 
 impl Syllable {
-  /// ...
+  /// Creates a new [`Syllable`] instance.
   pub fn new(text: String, phoneme: String) -> Self {
     Self { text, phoneme }
   }

@@ -5,6 +5,8 @@ use zov_phonemizer::phonemizer;
 use zov_reporter::Result;
 use zov_tokenizer::tokenizer;
 
+use hyphenation::{Hyphenator, Iter, Language, Load, Standard};
+
 #[derive(Debug)]
 pub struct Token {
   text: String,
@@ -22,13 +24,13 @@ pub fn compile(source: &str) -> Result<()> {
 
   let tokens = phonemizer::phonemize(tokens)?;
 
-  println!("\n{:?}\n", tokens);
+  println!("\n{:#?}\n", tokens);
 
   // --- PARSiNG.
 
   let ast = parser::parse(tokens)?;
 
-  println!("\n{:?}\n", ast);
+  println!("\n{:#?}\n", ast);
 
   Ok(())
 }
